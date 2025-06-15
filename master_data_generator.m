@@ -67,10 +67,12 @@ pcb.Conductor = metal('Copper');
 figure;
 show(pcb);
 
+% S11
 freq = linspace(15e9, 20e9, 75);
 s = sparameters(pcb, freq);
 s11 = 20 * log10(abs(rfparam(s, 1, 1)));
 
+% Calculating area made by the y(x) = -10 - s11 using the trapezoidal rule.
 curve = -10 - s11;
 area = trapz(freq / 1e9, curve);
 
