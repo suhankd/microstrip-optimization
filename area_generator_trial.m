@@ -11,17 +11,17 @@ scale = 0.2;  % scaling from ~3.5 GHz to 17.5 GHz
 mainPatchLength = 30e-3 * scale;
 patchWidth = 60e-3 * scale;
 
-feedLength = T.fl(1) * scale;
-feedWidth = T.fw(1) * scale;
+feedLength = T.fl(8) * scale;
+feedWidth = T.fw(8) * scale;
 
 patchLength = feedLength + mainPatchLength;
 y_offset = (patchLength - mainPatchLength) * 0.5;
 
-l1 = T.l1(1) * scale;
-l2 = T.l2(1) * scale;
-w1 = T.w1(1) * scale;
-w2 = T.w2(1) * scale;
-radius = T.r(1) * scale;
+l1 = T.l1(8) * scale;
+l2 = T.l2(8) * scale;
+w1 = T.w1(8) * scale;
+w2 = T.w2(8) * scale;
+radius = T.r(8) * scale;
 
 gnd = antenna.Rectangle( ...
     'Length', patchWidth, ...
