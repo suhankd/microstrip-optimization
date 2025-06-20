@@ -1,9 +1,11 @@
-function master_area_generator(filename)
+function master_area_generator(filename, file_num)
     
     T = readtable(filename);
 
     areas = zeros(height(T), 1);
 
+    parpool;
+    
     substrate = dielectric;
     substrate.Name = 'R5';
     substrate.EpsilonR = 2.2;
@@ -17,7 +19,7 @@ function master_area_generator(filename)
     
     n = 20;
 
-    for i = 1 : n
+    parfor i = 1 : n
     
         feedLength = T.fl(i) * scale;
         feedWidth = T.fw(i) * scale;
@@ -100,7 +102,7 @@ function master_area_generator(filename)
         ylabel('S11');
         title(sprintf('S11 vs Frequency (sample %d)', i));
         grid on;
-        saveas(fig, sprintf('sample_%d.png', i));
+        saveas(fig, sprintf('plots_%/sample_%d.png', 1, i));
         close(fig);
 
     
